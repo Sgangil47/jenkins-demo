@@ -5,10 +5,10 @@ pipeline {
     }
 
     stages {
-        stage('gitclone') {
+        stage('git') {
             steps {
                 echo '-----------------pulling code from source-------------------'
-                git 'git@gitlab.com:sachin.gangil/jenkins-demo.git'
+               git branch: 'main', credentialsId: 'GitLab-ssh', url: 'git@gitlab.com:sachin.gangil/jenkins-demo.git'
             }
         }
         stage('Build') {

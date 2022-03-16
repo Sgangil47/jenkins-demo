@@ -11,10 +11,10 @@ pipeline {
                git branch: 'main', credentialsId: 'GitLab-ssh', url: 'git@gitlab.com:sachin.gangil/jenkins-demo.git'
             }
         }
-        stage('Initialize'){   
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
+        //stage('Initialize'){   
+        //def dockerHome = tool 'myDocker'
+        //env.PATH = "${dockerHome}/bin:${env.PATH}"
+    //}
         stage('Build') {
             steps {
                 echo '----------------building image of source code---------'

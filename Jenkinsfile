@@ -8,7 +8,7 @@ pipeline {
         stage('git') {
             steps {
                 echo '-----------------pulling code from source-------------------'
-                git branch: 'main', credentialsId: 'Git-Lab-SSH', url: 'https://gitlab.com/sachin.gangil/jenkins-demo'
+                git branch: 'main', credentialsId: 'sg-git-lab-ssh', url: 'git@gitlab.com:sachin.gangil/jenkins-demo.git'
             }
         }
    

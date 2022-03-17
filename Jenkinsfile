@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '----------------building image of source code---------'
-                sh 'docker build -t jenkins-python-docker-demo:latest .'
+                sh 'docker build -t pranjal01/jenkins-python-docker-demo:v1 .'
                
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Push') {
             steps {
                 echo '--------------------------Image pushed to Docker-Hub successfully----------------'
-                sh 'docker push pranjal01/jenkins-python-docker-demo:latest'
+                sh 'docker push pranjal01/jenkins-python-docker-demo:v1'
             }
         }
     }

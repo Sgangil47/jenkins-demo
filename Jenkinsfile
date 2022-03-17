@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '----------------building image of source code---------'
-                sh 'docker build -t 700085/jenkins-demo:latest .'
+                sh 'docker build -t jenkins-python-docker-demo:latest.'
             }
         }
         stage('Login') {

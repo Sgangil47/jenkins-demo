@@ -24,7 +24,7 @@ pipeline {
                 echo '----------------Listing images--------'
                  sh 'docker images'
             }
-        }
+          }
    
 
         stage('Login') {
@@ -39,6 +39,14 @@ pipeline {
                 sh 'docker push pranjal01/jenkins-python-docker-demo:v1'
             }
         }
+         stage('PullImage') {
+            steps {
+                 sh 'docker pull pranjal01/jenkins-python-docker-demo:v1'
+                echo '-----------------image pullled successfully------------'
+                sh 'docker run -d --name=python-test -p 5000:5000 pranjal01/jenkins-python-docker-demo:v1'
+                echo '-------------container running successfully--------------------'
+            }
+          }
     }
     post{
       always{

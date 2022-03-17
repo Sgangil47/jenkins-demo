@@ -16,8 +16,17 @@ pipeline {
             steps {
                 echo '----------------building image of source code---------'
                 sh 'docker build -t jenkins-python-docker-demo:latest .'
+               
             }
         }
+          stage('Test') {
+            steps {
+                echo '----------------Listing images--------'
+                 sh 'docker images'
+            }
+        }
+   
+
         stage('Login') {
             steps {
                 echo '---------------------Logging in Docker-Hub to push the builded image--------------------'

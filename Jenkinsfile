@@ -27,7 +27,7 @@ pipeline {
         stage('Push') {
             steps {
                 echo '--------------------------Image pushed to Docker-Hub successfully----------------'
-                sh 'docker push 700085/jenkins-demo:latest'
+                sh 'docker push pranjal01/jenkins-python-docker-demo:latest'
             }
         }
     }

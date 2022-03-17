@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '----------------building image of source code---------'
-                sh 'docker build -t pranjal01/jenkins-python-docker-demo:v1 .'
+                sh 'docker build -t pranjal01/jenkins-python-docker-demo{$BUILD_NUMBER}:v1{$BUILD_NUMBER} .'
                
             }
         }
@@ -36,14 +36,14 @@ pipeline {
         stage('Push') {
             steps {
                 echo '--------------------------Image pushed to Docker-Hub successfully----------------'
-                sh 'docker push pranjal01/jenkins-python-docker-demo:v1'
+                sh 'docker push pranjal01/jenkins-python-docker-demo{$BUILD_NUMBER}:v1{$BUILD_NUMBER}'
             }
         }
          stage('PullImage') {
             steps {
                  sh 'docker pull pranjal01/jenkins-python-docker-demo:v1'
                 echo '-----------------image pullled successfully------------'
-                sh 'docker run -d --name=python-test -p 5000:5000 pranjal01/jenkins-python-docker-demo:v1'
+                sh 'docker run -d --name=python-test{$BUILD_NUMBER} -p 500{$BUILD_NUMBER}:500{$BUILD_NUMBER} pranjal01/jenkins-python-docker-demo{$BUILD_NUMBER}:v1{$BUILD_NUMBER}'
                 echo '-------------container running successfully--------------------'
             }
           }

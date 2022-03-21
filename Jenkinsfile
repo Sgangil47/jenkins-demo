@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent{
+        kubernetes {
+            defaultContainer 'jnlp'
+            yamlFile 'agentpod.yaml'
+        }
+    }
     environment{
       DOCKERHUB_CREDENTIALS=credentials('pl-docker-hub')
     }
@@ -14,9 +19,10 @@ pipeline {
    
         stage('Build') {
             steps {
+                container('docker'){
                 echo '----------------building image of source code---------'
                 sh 'docker build -t pranjal01/jenkins-python-docker-demo:v$BUILD_NUMBER .'
-               
+                }
             }
         }
           stage('Test') {

@@ -85,8 +85,8 @@ pipeline
     post
     {
       always
-        container('docker')
         {
+        container('docker')
             {
                 sh 'docker logout'
                 echo 'Logout Successfully'

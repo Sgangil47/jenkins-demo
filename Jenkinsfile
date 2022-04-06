@@ -78,6 +78,8 @@ pipeline
                     echo '-----------------image pullled successfully------------'
                     sh 'docker run -d --name=python-test$BUILD_NUMBER -p 50$BUILD_NUMBER:5000 pranjal01/jenkins-python-docker-demo:v$BUILD_NUMBER'
                     echo '-------------container running successfully--------------------'
+                     sh 'kubectl get nodes'
+                     echo '---------kubectl command running successfully---------'
                 }
              }
           }

@@ -83,9 +83,12 @@ pipeline
           }
         stage('kubectl')
         {
-            withKubeCredentials([credentialsId: 'kubernetes-credentials', serverUrl: '192.168.100.151:6443'])
+            steps
             {
-                sh 'kubectl config view'
+                withKubeCredentials([credentialsId: 'kubernetes-credentials', serverUrl: '192.168.100.151:6443'])
+                {
+                    sh 'kubectl config view'
+                }
             }
         }
     }

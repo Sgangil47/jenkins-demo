@@ -85,7 +85,7 @@ pipeline
         {
             steps
             {
-                withKubeCredentials([credentialsId: 'kubernetes-credentials', serverUrl: '192.168.100.151:6443'])
+                withKubeCredentials([credentialsId: 'kubernetes-credentials', serverUrl: 'http://192.168.100.151:6443'])
                 {
                     sh 'kubectl config view'
                 }
